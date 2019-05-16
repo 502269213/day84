@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/studentController/updateStudent">
+        <input type="hidden" th:value="${student.getId()}" name="id"><br>
+        姓名:<input type="text" name="username" th:value="${student.getUsername()}"><br>
+        密码:<input type="text" name="password" th:value="${student.getPassword()}" ><br>
+        性别:<span th:if="${student.getSex()==1}">
+        <input type="radio" value="1" name="sex" checked="checked">男
+        <input type="radio" value="0" name="sex" >女<br>
+    </span>
+        <span th:if="${student.getSex()==0}">
+        <input type="radio" value="1" name="sex" >男
+        <input type="radio" value="0" name="sex" checked="checked">女<br>
+    </span>
+
+        邮箱:<input type="text" name="email" th:value="${student.getEmail()}"><br>
+        <input type="submit" value="修改">
+    </form>
+</body>
+</html>
